@@ -29,22 +29,33 @@ def checkresult(result, z):
         miss += 1
         lives -= 1
         print(f"Неверно ! Правильный ответ {z}")
+        print(f"Осталось жизней: {lives}")
+    else:
+        print("Верно!")
 
 
 def funcsum():
-    z = random.randint(minDiapazon,maxDiapazon)
+    result = ""
+    z = random.randint(minDiapazon, maxDiapazon)
     x = random.randint(minDiapazon, z)
     y = z - x
 
     if random.randint(0, 1):
-        result = input(f"{x} + {y} = ")
+        while not result.isdigit():
+            result = input(f"{x} + {y} = ")
+            if not result.isdigit():
+                print("Введите число!")
     else:
-        result = input(f"{y} + {x} = ")
-    checkresult(result, z)
+        while not result.isdigit():
+            result = input(f"{y} + {x} = ")
+            if not result.isdigit():
+                print("Введите число!")
+    checkresult(int(result), z)
+
 
 
 start()
-for _ in range(3):
+while lives:
     count += 1
     z = funcsum()
 
