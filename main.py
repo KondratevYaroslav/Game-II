@@ -29,9 +29,9 @@ def checkresult(result, z):
         miss += 1
         lives -= 1
         print(f"Неверно ! Правильный ответ {z}")
-        print(f"Осталось жизней: {lives}")
+        print(f"Осталось жизней: {lives}\n")
     else:
-        print("Верно!")
+        print("Верно!\n")
 
 
 def funcsum():
