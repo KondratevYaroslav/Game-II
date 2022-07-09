@@ -53,7 +53,7 @@ def funcsum():
     checkresult(int(result), z)
 
 
-def funcsubtKraction():
+def funcsubtraction():
     result = ""
     x = random.randint(minDiapazon + 15, maxDiapazon - 15)
     y = random.randint(minDiapazon, maxDiapazon)
