@@ -53,14 +53,31 @@ def funcsum():
     checkresult(int(result), z)
 
 
+def funcsubtKraction():
+    result = ""
+    x = random.randint(minDiapazon + 15, maxDiapazon - 15)
+    y = random.randint(minDiapazon, maxDiapazon)
+    z = abs(x - y)
+    while not result.isdigit():
+        result = input(f"{max(x,y)} - {min(x,y)} = ")
+        if not result.isdigit():
+            print("Введите число!")
+    checkresult(int(result), z)
 
-start()
-while lives:
-    count += 1
-    z = funcsum()
 
-stop()
+def main():
+    global count
+
+    start()
+    while lives:
+        count += 1
+        func = random.randint(0, 1)
+        if func == 0:
+            funcsum()
+        elif func == 1:
+            funcsubtraction()
+    stop()
 
 
-
-
+if __name__ == '__main__':
+    main()
