@@ -53,7 +53,7 @@ def funcsum():
     checkresult(int(result), z)
 
 
-def funcsubtraction():
+def funcSubtraction():
     result = ""
     x = random.randint(minDiapazon + 15, maxDiapazon - 15)
     y = random.randint(minDiapazon, maxDiapazon)
@@ -65,17 +65,50 @@ def funcsubtraction():
     checkresult(int(result), z)
 
 
+
+def funcMultiplication():
+    result = ""
+    x = random.randint(minDiapazon, maxDiapazon) // 5 + 1
+    y = random.randint(minDiapazon, maxDiapazon) // x
+    z = x * y
+    if random.randint(0, 1):
+        while not result.isdigit():
+            result = input(f"{x} * {y} = ")
+            if not result.isdigit():
+                print("Введите число!")
+    else:
+        while not result.isdigit():
+            result = input(f"{y} * {x} = ")
+            if not result.isdigit():
+                print("Введите число!")
+    checkresult(int(result), z)
+def funcDivision():
+    result = ""
+    x = random.randint(minDiapazon, maxDiapazon) // 10 + 1
+    y = random.randint(minDiapazon, maxDiapazon) // x
+    x = x * y
+    z = x // y
+    while not result.isdigit():
+        result = input(f"{x} / {y} = ")
+        if not result.isdigit():
+            print("Введите число!")
+    checkresult(int(result), z)
+
 def main():
     global count
 
     start()
     while lives:
         count += 1
-        func = random.randint(0, 1)
+        func = random.randint(0, 4)
         if func == 0:
             funcsum()
         elif func == 1:
-            funcsubtraction()
+            funcSubtraction()
+        elif func == 2:
+            funcMultiplication()
+        elif func == 3:
+            funcDivision()
     stop()
 
 
